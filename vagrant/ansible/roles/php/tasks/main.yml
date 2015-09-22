@@ -1,0 +1,55 @@
+#Install packages
+- name: install php packages
+  action: apt pkg={{item}} state=installed
+  with_items:
+  - php5-cli
+  - php5-fpm
+  - php5-curl
+  - php5-mcrypt
+  - php5-json
+  - php5-imap
+  - php5-redis
+  - php5-mysqlnd
+  - php5-intl
+
+- name: set date.timezone.ini file
+  copy: src=date.timezone.ini dest=/etc/php5/fpm/conf.d/date.timezone.ini mode=0644 force=yes
+
+- name: create log directory /var/log/symfony2
+  file: path=/var/log/symfony2 state=directory owner=vagrant group=vagrant mode=0777 recurse=yes
+
+- name: change php-fpm user
+  ini_file: dest=/etc/php5/fpm/pool.d/www.conf
+    section=www
+    option=user
+    value=vagrant
+  notify:
+  - restart php5-fpm
+  tags: php5-fpm
+
+# - name: change php5-fpm listen user
+#   ini_file: dest=/etc/php5/fpm/pool.d/www.conf
+#     section=www
+#     option=listen.owner
+#     value=vagrant
+#   notify:
+#   - restart php5-fpm
+#   tags: php5-fpm
+
+- name: change php5-fpm group
+  ini_file: dest=/etc/php5/fpm/pool.d/www.conf
+    section=www
+    option=group
+    value=vagrant
+  notify:
+  - restart php5-fpm
+  tags: php5-fpm
+
+# - name: change php5-fpm listen group
+#   ini_file: dest=/etc/php5/fpm/pool.d/www.conf
+#     section=www
+#     option=listen.group
+#     value=vagrant
+#   notify:
+#   - restart php5-fpm
+#   tags: php5-fpm

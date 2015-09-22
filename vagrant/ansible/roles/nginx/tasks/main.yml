@@ -1,0 +1,10 @@
+- name: install
+  action: apt pkg={{item}} state=installed
+  with_items:
+  - nginx
+
+- name: set nginx site file
+  copy: src=symfony2.conf dest=/etc/nginx/conf.d/symfony2.conf mode=0644 force=yes
+  notify:
+  - restart nginx
+  tags: nginx

@@ -1,0 +1,8 @@
+- hosts: all
+  user: vagrant
+  sudo: yes
+
+  roles:
+    - { role: php }
+    - { role: geerlingguy.composer }
+    - { role: nginx }
