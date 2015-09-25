@@ -11,3 +11,13 @@
   notify:
   - restart nginx
   tags: nginx
+
+- name: nginx ssl cert
+  copy: src=nginx.crt dest=/etc/ssl/certs/nginx.crt
+  notify:
+  - restart nginx
+
+- name: nginx ssl key
+  copy: src=nginx.key dest=/etc/ssl/private/nginx.key
+  notify:
+  - restart nginx
