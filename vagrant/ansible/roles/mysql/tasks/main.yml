@@ -1,0 +1,29 @@
+- name: install mysql packages
+  action: apt pkg={{item}} state=installed
+  with_items:
+  - python-mysqldb
+  - mysql-server-5.6
+
+- name: set my.cnf file
+  copy: src=my.cnf dest=/etc/mysql/my.cnf mode=0644
+  notify:
+    - restart mysql
+
+- name: start the MySQL service
+  action: service name=mysql state=started
+
+- name: update mysql root password for all root accounts
+  sudo: yes
+  mysql_user:
+    name: root
+    host: "{{ item }}"
+    password: root
+    login_user: root
+    login_password: root
+    check_implicit_admin: yes
+    priv: "*.*:ALL,GRANT"
+  with_items:
+    - "{{ ansible_hostname }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
