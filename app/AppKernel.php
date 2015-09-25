@@ -38,4 +38,9 @@ class AppKernel extends Kernel
     {
         return '/var/cache/symfony2/'.$this->environment;
     }
+
+    public function getLogDir()
+    {
+        return '/var/log/symfony2';
+    }
 }

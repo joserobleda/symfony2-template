@@ -16,7 +16,7 @@ monolog:
         main:
             type:   stream
             path:   "/var/log/symfony2/%kernel.environment%.log"
-            level:  debug
+            level:  info
         console:
             type:   console
             bubble: false
