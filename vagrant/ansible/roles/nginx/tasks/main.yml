@@ -3,8 +3,11 @@
   with_items:
   - nginx
 
+- name: make nginx logs easy to read
+  file: path=/var/log/nginx/ state=directory mode=0755 owner=vagrant group=vagrant recurse=yes
+
 - name: set nginx site file
-  copy: src=symfony2.conf dest=/etc/nginx/conf.d/symfony2.conf mode=0644 force=yes
+  copy: src=default dest=/etc/nginx/sites-available/default mode=0644 force=yes
   notify:
   - restart nginx
   tags: nginx

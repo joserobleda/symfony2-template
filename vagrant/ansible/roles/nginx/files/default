@@ -1,9 +1,9 @@
 server {
-    server_name 11.11.11.11;
+    listen 80 default_server;
     root /vagrant/web;
 
-    error_log /var/log/symfony2/nginx.error.log;
-    access_log /var/log/symfony2/nginx.access.log;
+    error_log /var/log/nginx/error.log;
+    access_log /var/log/nginx/access.log;
 
     location / {
         # try to serve file directly, fallback to app.php
