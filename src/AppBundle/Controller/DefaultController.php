@@ -9,12 +9,12 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
 	/**
-     * @Route("/")
+     * @Route("/", name="index")
      */
     public function indexAction(Request $request)
     {
-        $logger = $this->get('logger');
-        $logger->info('I just got the logger');
+        $command = new \AppName\Domain\User\RegisterUserCommand();
+        $this->get('command_bus')->handle($command);
 
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(

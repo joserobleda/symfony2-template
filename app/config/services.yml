@@ -7,3 +7,8 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    register_user_command_handler:
+        class: AppName\Domain\User\RegisterUserCommandHandler
+        arguments: ["@logger"]
+        tags:
+            - { name: command_handler, handles: AppName\Domain\User\RegisterUserCommand }
