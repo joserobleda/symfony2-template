@@ -1,2 +1,2 @@
-- name: Automatic chdir to /vagrant
+- name: automatic chdir to /vagrant
   copy: src=bash_profile dest=/home/vagrant/.bash_profile mode=0644
