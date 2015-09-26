@@ -1,5 +1,0 @@
-- name: create symfony cache directory
-  file: path=/var/cache/symfony2 state=directory mode=0755 owner=vagrant group=vagrant
-
-- name: create symfony log directory
-  file: path=/var/log/symfony2 state=directory mode=0755 owner=vagrant group=vagrant recurse=yes
