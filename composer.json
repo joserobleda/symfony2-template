@@ -20,7 +20,9 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
         "simple-bus/symfony-bridge": "^4.1",
-        "doctrine/doctrine-migrations-bundle": "^1.0"
+        "doctrine/doctrine-migrations-bundle": "^1.0",
+        "snc/redis-bundle": "1.1.*",
+        "predis/predis": "1.0.3"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

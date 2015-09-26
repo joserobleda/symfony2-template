@@ -71,6 +71,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+# Redis Configuration
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: redis://localhost
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"

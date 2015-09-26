@@ -1,2 +1,7 @@
+- name: install php repo
+  apt_repository: repo='ppa:ondrej/php5-5.6'
+  notify:
+  - update repo
+
 - name: automatic chdir to /vagrant
   copy: src=bash_profile dest=/home/vagrant/.bash_profile mode=0644

@@ -5,6 +5,7 @@
   roles:
     - { role: system }
     - { role: mysql }
+    - { role: redis }
     - { role: php }
     - { role: geerlingguy.composer }
     - { role: nginx }
