@@ -10,3 +10,4 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: 33f64a97f296f3104363fa9110ab214d4b
+    redis_host: localhost

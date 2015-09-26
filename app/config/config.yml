@@ -27,7 +27,7 @@ framework:
     trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
+        handler_id:  snc_redis.session.handler
     fragments:       ~
     http_method_override: true
 
@@ -77,7 +77,18 @@ snc_redis:
         default:
             type: predis
             alias: default
-            dsn: redis://localhost
+            dsn: "redis://%redis_host%"
+        cache:
+            type: predis
+            alias: cache
+            dsn: redis://%redis_host%/1
+        session:
+            type: predis
+            alias: session
+            dsn: "redis://%redis_host%/2"
+    session:
+        client: session
+        use_as_default: true
 
 # Swiftmailer Configuration
 swiftmailer:

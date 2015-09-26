@@ -16,9 +16,6 @@ class DefaultController extends Controller
         $command = new \AppName\Domain\User\RegisterUserCommand();
         $this->get('command_bus')->handle($command);
 
-        $redis = $this->container->get('snc_redis.default');
-        $val = $redis->incr('foo:bar');
-
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
