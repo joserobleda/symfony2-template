@@ -15,7 +15,7 @@ monolog:
     handlers:
         main:
             type:   stream
-            path:   "/var/log/symfony2/%kernel.environment%.log"
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
             level:  info
         console:
             type:   console
