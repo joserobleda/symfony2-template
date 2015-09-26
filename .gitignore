@@ -1,5 +1,8 @@
 .vagrant
 vendor
+app/bootstrap.php.cache
+app/cache/*
+app/logs/*
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
