@@ -9,3 +9,4 @@
     - { role: php }
     - { role: geerlingguy.composer }
     - { role: nginx }
+    - { role: rabbitmq }

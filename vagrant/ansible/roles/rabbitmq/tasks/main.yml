@@ -1,0 +1,19 @@
+- name: install rabbitmq-server package
+  apt: pkg=rabbitmq-server state=installed update_cache=true
+
+- name: enable management plugin
+  command: rabbitmq-plugins enable rabbitmq_management creates=/etc/rabbitmq/enabled_plugins
+  notify:
+  - update rabbitmq
+
+- name: add rabbit user with pass
+  command: rabbitmqctl add_user rabbit rabbit
+  register: add_user
+  changed_when: "'done' in add_user.stdout"
+  failed_when: "'error' in add_user.stderr"
+
+- name: set user tags
+  command: rabbitmqctl set_user_tags rabbit administrator
+
+- name: set user permissions
+  command: rabbitmqctl set_permissions -p / rabbit ".*" ".*" ".*"
