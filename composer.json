@@ -25,7 +25,8 @@
         "predis/predis": "1.0.3"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "behat/behat": "^3.0"
     },
     "scripts": {
         "post-root-package-install": [
