@@ -17,3 +17,11 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    # The redis host uri
+    redis_host: 127.0.0.1
+
+    # Request context data for CLI apps
+    router.request_context.host: localhost
+    router.request_context.scheme: http
+    router.request_context.base_url: /
