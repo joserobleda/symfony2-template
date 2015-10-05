@@ -6,19 +6,5 @@ files:
 hooks:
   BeforeInstall:
     - location: ./codedeploy/before_install
-permissions:
-  - object: /var/app/current
-    pattern: "*"
-    owner: www-data
-    group: www-data
-    mode: 644
-    type:
-      - directory
-permissions:
-  - object: /var/app/current
-    pattern: "*"
-    owner: www-data
-    group: www-data
-    mode: 644
-    type:
-      - file
+  AfterInstall:
+    - location: ./codedeploy/after_install
