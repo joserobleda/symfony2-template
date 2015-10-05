@@ -8,6 +8,8 @@ permissions:
     pattern: "*"
     owner: www-data
     group: www-data
+    type:
+      - directory
 hooks:
   BeforeInstall:
     - location: ./.codedeploy/before_install
