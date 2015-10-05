@@ -8,7 +8,7 @@ hooks:
     - location: ./codedeploy/before_install
 permissions:
   - object: /var/app/current
-    pattern: "**"
+    pattern: "*"
     owner: www-data
     group: www-data
     mode: 644
@@ -16,7 +16,7 @@ permissions:
       - directory
 permissions:
   - object: /var/app/current
-    pattern: "**"
+    pattern: "*"
     owner: www-data
     group: www-data
     mode: 644
