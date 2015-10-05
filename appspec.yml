@@ -3,3 +3,6 @@ os: linux
 files:
    - source: .
      destination: /var/app/current
+hooks:
+	BeforeInstall:
+     - location: .codedeploy/before_install
