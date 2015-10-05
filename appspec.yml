@@ -3,13 +3,6 @@ os: linux
 files:
   - source: .
     destination: /var/app/current
-permissions:
-  - object: /var/app/current
-    pattern: "**"
-    owner: www-data
-    group: www-data
-    type:
-      - directory
 hooks:
   BeforeInstall:
     - location: ./.codedeploy/before_install
