@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: /var/app/current
+    destination: /var/app/swap
 hooks:
   BeforeInstall:
     - location: ./codedeploy/before_install
