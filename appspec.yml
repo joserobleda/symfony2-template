@@ -5,4 +5,4 @@ files:
     destination: /var/app/current
 hooks:
   BeforeInstall:
-    - location: ./.codedeploy/before_install
+    - location: ./codedeploy/before_install
