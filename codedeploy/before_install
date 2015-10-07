@@ -1,9 +1,3 @@
 #!/bin/bash
 
 rm -rf /var/app/swap/*
-
-# recover current ec2 instance id
-INSTANCE_ID=$(wget -q -O - http://instance-data/latest/meta-data/instance-id)
-
-# set ec2tags
-aws ec2 create-tags --resources $INSTANCE_ID --tags Key=codedeploy,Value=ready
