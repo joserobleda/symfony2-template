@@ -4,7 +4,7 @@
 - name: enable management plugin
   command: rabbitmq-plugins enable rabbitmq_management creates=/etc/rabbitmq/enabled_plugins
   notify:
-  - update rabbitmq
+  - restart rabbitmq
 
 - name: add rabbit user with pass
   command: rabbitmqctl add_user rabbit rabbit
