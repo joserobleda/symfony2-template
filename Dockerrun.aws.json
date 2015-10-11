@@ -16,8 +16,8 @@
   ],
   "Volumes": [
     {
-      "HostDirectory": "/var/app/current",
-      "ContainerDirectory": "/var/app/current"
+      "HostDirectory": "/var/app",
+      "ContainerDirectory": "/var/app"
     }
   ],
   "Logging": "/var/log/nginx"
