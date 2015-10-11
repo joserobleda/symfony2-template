@@ -6,10 +6,12 @@
   },
   "Ports": [
     {
-      "ContainerPort": "443"
+      "ContainerPort": "443",
+      "HostPort": "443"
     },
     {
-      "ContainerPort": "80"
+      "ContainerPort": "80",
+      "HostPort": "80"
     }
   ],
   "Volumes": [
