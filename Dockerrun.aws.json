@@ -4,7 +4,7 @@
     {
       "name": "code",
       "host": {
-        "sourcePath": "/var/app/current"
+        "sourcePath": "/var/app/current/"
       }
     },
     {
