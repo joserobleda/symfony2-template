@@ -1,24 +1,95 @@
 {
-  "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "joserobleda/docker-nginx-fpm-sf2",
-    "Update": "true"
-  },
-  "Ports": [
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
     {
-      "ContainerPort": "80",
-      "HostPort": "80"
+      "name": "code",
+      "host": {
+        "sourcePath": "/var/app/current"
+      }
     },
     {
-      "ContainerPort": "443",
-      "HostPort": "443"
-    }
-  ],
-  "Volumes": [
+      "name": "php-fpm-ini",
+      "host": {
+        "sourcePath": "/var/app/current/docker/volumes/php-fpm/php.ini"
+      }
+    },
     {
-      "HostDirectory": "/var/app",
-      "ContainerDirectory": "/var/app"
+      "name": "php-fpm-conf",
+      "host": {
+        "sourcePath": "/var/app/current/docker/volumes/php-fpm/php-fpm.conf"
+      }
+    },
+    {
+      "name": "nginx-conf",
+      "host": {
+        "sourcePath": "/var/app/current/docker/volumes/nginx/conf.d"
+      }
     }
   ],
-  "Logging": "/var/log/nginx"
+  "containerDefinitions": [
+    {
+      "name": "application",
+      "image": "busybox",
+      "essential": true,
+      "memory": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "code",
+          "containerPath": "/var/app/current"
+        }
+      ]
+    },
+    {
+      "name": "php-fpm",
+      "image": "php:5.6-fpm",
+      "essential": true,
+      "memory": 128,
+      "mountPoints": [
+        {
+          "sourceVolume": "code",
+          "containerPath": "/var/app/current"
+        },
+        {
+          "sourceVolume": "php-fpm-ini",
+          "containerPath": "/usr/local/etc/php/php.ini",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "php-fpm-conf",
+          "containerPath": "/usr/local/etc/php-fpm.conf",
+          "readOnly": true
+        }
+      ]
+    },
+    {
+      "name": "nginx",
+      "image": "nginx:1.9.5",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443
+        }
+      ],
+      "links": [
+        "php-fpm"
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "code",
+          "containerPath": "/var/app/current"
+        },
+        {
+          "sourceVolume": "nginx-conf",
+          "containerPath": "/etc/nginx/conf.d",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
 }
