@@ -31,7 +31,6 @@
       "name": "application",
       "image": "busybox",
       "essential": true,
-      "memory": 128,
       "mountPoints": [
         {
           "sourceVolume": "code",
@@ -43,12 +42,12 @@
       "name": "php-fpm",
       "image": "php:5.6-fpm",
       "essential": true,
-      "memory": 128,
-      "mountPoints": [
+      "volumesFrom" : [
         {
-          "sourceVolume": "code",
-          "containerPath": "/var/app/current"
-        },
+          "sourceContainer": "application",
+        }
+      ],
+      "mountPoints": [
         {
           "sourceVolume": "php-fpm-ini",
           "containerPath": "/usr/local/etc/php/php.ini",
@@ -65,7 +64,6 @@
       "name": "nginx",
       "image": "nginx:1.9.5",
       "essential": true,
-      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
@@ -79,11 +77,12 @@
       "links": [
         "php-fpm"
       ],
-      "mountPoints": [
+      "volumesFrom" : [
         {
-          "sourceVolume": "code",
-          "containerPath": "/var/app/current"
-        },
+          "sourceContainer": "application",
+        }
+      ],
+      "mountPoints": [
         {
           "sourceVolume": "nginx-conf",
           "containerPath": "/etc/nginx/conf.d",
