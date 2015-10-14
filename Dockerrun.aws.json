@@ -59,6 +59,9 @@
           "containerPath": "/usr/local/etc/php-fpm.conf",
           "readOnly": true
         }
+      ],
+      "entryPoint": [
+        "php-fpm"
       ]
     },
     {
