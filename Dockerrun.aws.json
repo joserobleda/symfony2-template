@@ -1,5 +1,6 @@
 {
   "AWSEBDockerrunVersion": 2,
+  "family": "php-app",
   "volumes": [
     {
       "name": "code",
