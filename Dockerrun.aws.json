@@ -1,6 +1,5 @@
 {
   "AWSEBDockerrunVersion": 2,
-
   "volumes": [
     {
       "name": "code",
@@ -27,12 +26,12 @@
       }
     }
   ],
-
   "containerDefinitions": [
     {
       "name": "application",
       "image": "busybox",
       "essential": true,
+      "memory": 128,
       "mountPoints": [
         {
           "sourceVolume": "code",
@@ -44,6 +43,7 @@
       "name": "php-fpm",
       "image": "php:5.6-fpm",
       "essential": true,
+      "memory": 128,
       "mountPoints": [
         {
           "sourceVolume": "code",
@@ -65,6 +65,7 @@
       "name": "nginx",
       "image": "nginx:1.9.5",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
