@@ -44,7 +44,7 @@
       "essential": true,
       "volumesFrom" : [
         {
-          "sourceContainer": "application",
+          "sourceContainer": "application"
         }
       ],
       "mountPoints": [
@@ -79,7 +79,7 @@
       ],
       "volumesFrom" : [
         {
-          "sourceContainer": "application",
+          "sourceContainer": "application"
         }
       ],
       "mountPoints": [
