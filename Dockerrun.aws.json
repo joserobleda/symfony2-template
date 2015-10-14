@@ -31,7 +31,7 @@
       "name": "application",
       "image": "busybox",
       "essential": true,
-      "memory": 128,
+      "memory": 50,
       "mountPoints": [
         {
           "sourceVolume": "code",
@@ -43,7 +43,7 @@
       "name": "php-fpm",
       "image": "php:5.6-fpm",
       "essential": true,
-      "memory": 128,
+      "memory": 50,
       "mountPoints": [
         {
           "sourceVolume": "code",
@@ -65,7 +65,7 @@
       "name": "nginx",
       "image": "nginx:1.9.5",
       "essential": true,
-      "memory": 128,
+      "memory": 50,
       "portMappings": [
         {
           "hostPort": 80,
