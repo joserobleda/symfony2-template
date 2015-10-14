@@ -92,6 +92,9 @@
           "containerPath": "/etc/nginx/conf.d",
           "readOnly": true
         }
+      ],
+      "entryPoint": [
+        "ngix"
       ]
     }
   ]
