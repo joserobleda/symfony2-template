@@ -42,12 +42,11 @@
       "name": "php-fpm",
       "image": "php:5.6-fpm",
       "essential": true,
-      "volumesFrom" : [
-        {
-          "sourceContainer": "application"
-        }
-      ],
       "mountPoints": [
+        {
+          "sourceVolume": "code",
+          "containerPath": "/var/app/current"
+        },
         {
           "sourceVolume": "php-fpm-ini",
           "containerPath": "/usr/local/etc/php/php.ini",
@@ -77,12 +76,11 @@
       "links": [
         "php-fpm"
       ],
-      "volumesFrom" : [
-        {
-          "sourceContainer": "application"
-        }
-      ],
       "mountPoints": [
+        {
+          "sourceVolume": "code",
+          "containerPath": "/var/app/current"
+        },
         {
           "sourceVolume": "nginx-conf",
           "containerPath": "/etc/nginx/conf.d",
