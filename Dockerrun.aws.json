@@ -1,5 +1,6 @@
 {
   "AWSEBDockerrunVersion": 2,
+
   "volumes": [
     {
       "name": "code",
@@ -26,6 +27,7 @@
       }
     }
   ],
+
   "containerDefinitions": [
     {
       "name": "application",
