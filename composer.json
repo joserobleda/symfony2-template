@@ -63,7 +63,18 @@
         "symfony-web-dir": "web",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "env-map": {
+                "database_host": "SYMFONY_DATABASE_HOST",
+                "database_port": "SYMFONY_DATABASE_PORT",
+                "database_name": "SYMFONY_DATABASE_NAME",
+                "database_user": "SYMFONY_DATABASE_USER",
+                "database_password": "SYMFONY_DATABASE_PASSWORD",
+                "redis_host": "SYMFONY_REDIS_HOST",
+                "rabbitmq_host": "SYMFONY_RABBITMQ_HOST",
+                "rabbitmq_user": "SYMFONY_RABBITMQ_USER",
+                "rabbitmq_password": "SYMFONY_RABBITMQ_PASSWORD"
+            }
         }
     }
 }
