@@ -36,7 +36,7 @@
       "mountPoints": [
         {
           "sourceVolume": "code",
-          "containerPath": "/var/app/current"
+          "containerPath": "/app"
         }
       ]
     },
@@ -48,7 +48,7 @@
       "mountPoints": [
         {
           "sourceVolume": "code",
-          "containerPath": "/var/app/current"
+          "containerPath": "/app"
         },
         {
           "sourceVolume": "php-fpm-ini",
@@ -86,7 +86,7 @@
       "mountPoints": [
         {
           "sourceVolume": "code",
-          "containerPath": "/var/app/current"
+          "containerPath": "/app"
         },
         {
           "sourceVolume": "nginx-conf",
